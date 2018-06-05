@@ -1,0 +1,15 @@
+
+#RewriteEngine On
+#RewriteRule ^index\.php$ - [L]
+#ErrorDocument 404 mvc/app/Error404.php
+
+
+
+
+RewriteEngine On
+RewriteBase /
+ErrorDocument 404 /app/controllers/Error404.php
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
