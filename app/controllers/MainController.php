@@ -14,9 +14,7 @@ class MainController
     public function actionShop()
     {
         $shop = new ShopModel();
-
         $myrow = $shop->getArrayWithProduct();
-        //var_dump($myrow);
         return new ViewShop($myrow);
     }
 
@@ -28,16 +26,6 @@ class MainController
     public function actionContacts()
     {
         require_once  __DIR__.'/../views/contacts.html';
-    }
-
-    public function actionRegistration()
-    {
-        require_once __DIR__.'/../views/registration.html';
-    }
-
-    public function actionSingin()
-    {
-        require_once __DIR__.'/../views/signIn.html';
     }
 
     public function actionMain()

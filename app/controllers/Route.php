@@ -23,10 +23,13 @@ class Route
         $route = $_GET[$this->route];
         if(empty($route)) return new Error404("<br>Route $route is empty<br>");
         $routePieces = explode('/',strtolower($route));
-        //var_dump($routePieces);
+
+        //if we have any filter - divide it.
         $filter = explode("-", $routePieces[1]);
-        //var_dump($filter[1]);
+
+        // string for search controller.
         $controller = "app\\controllers\\". ucfirst($routePieces[0]).$this->controllerSuffix;
+        // string for search method in controller.
         $action = $this->actionPrefix;
 
         if(count($filter) > 1){ // if we have filter category, like 'phone','tablet','laptop'.
@@ -41,15 +44,6 @@ class Route
             }
         }
 
-        //var_dump($action);
-//        if(empty($routePieces[1])){
-//            $action = $this->actionPrefix . ucfirst($this->actionDefault);
-//        }elseif($routePieces[2]){
-//            $action = $this->actionPrefix . ucfirst($routePieces[2]);
-//        }else{
-//            $action = $this->actionPrefix . ucfirst($routePieces[1]);
-//        }
-
         if(!class_exists($controller)){
             return new Error404("<br>Not found controller $controller<br>");
         }else{
@@ -61,31 +55,5 @@ class Route
             $controllerClass->$action();
         }
     }
-
-    //    public function __construct ()
-//    {
-//        $this->route = $_GET['route'];
-//
-//        switch ($_GET['route']) {
-//            case 'contacts':
-//                echo "contacts <br>";
-//                new Model($this->route);
-//                //$this->getContacts();
-//                break;
-//            case 'about':
-//                echo "about  <br>";
-//                new Model($this->route);
-//                break;
-//            case 'auth':
-//                echo "Регистрация  <br>";
-//                new Model($this->route);
-//                break;
-//            case 'singin':
-//                echo "Вход  <br>";
-//                new Model($this->route);
-//                break;
-//        }
-//
-//    }
 
 }

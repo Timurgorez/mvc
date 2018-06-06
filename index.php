@@ -55,8 +55,8 @@ use app\models\Model;
                 </li>
             </ul>
             <div class="btn-group" role="group" aria-label="Basic example">
-                <a href="index.php?route=main/registration"><button type="button" class="btn btn-secondary">Registration</button></a>
-                <a href="index.php?route=main/singin"><button type="button" class="btn btn-secondary">Sing In</button></a>
+                <a href="index.php?route=account/registration"><button type="button" class="btn btn-secondary">Registration</button></a>
+                <a href="index.php?route=account/singin"><button type="button" class="btn btn-secondary">Sing In</button></a>
             </div>
             </div>
         </div>
